@@ -12,7 +12,16 @@ programming_languages = [['programming'],['py','js','c','cpp','h','java','html',
 other = [['other'],['zip','tar','tar.gz','tgz','rar','7z','gzip','exe','bat','sh','bin','app','conf','cfg','ini','yaml','yml','json','xml','iso', 'vdi', 'vmdk', 'obj', 'stl', 'fbx', 'dae', 'epub', 'mobi', 'azw', 'pdf', 'mat', 'hdf', 'hdf5']]
 
 file_types = [text_documents,spreadsheet_documents,presentation_documents,database_files,image_files,audio_files,video_files,programming_languages,other]
+file_names = ['text_documents','spreadsheet_documents','presentation_documents','database_files','image_files','audio_files','video_files','programming_languages','other']
 
+def MakeFolders():
+    for file_name in file_names:
+        os.mkdir(file_name)
+
+def RemoveFolders():
+    for file_name in file_names:
+        os.rmdir(file_name)
+    
 array = os.listdir()
 
 def organise():
@@ -45,6 +54,6 @@ def removeFromRepo():
                 
                 shutil.move(os.path.join(dir_path, file), os.getcwd())
 
-organise()
+RemoveFolders()
     
     
